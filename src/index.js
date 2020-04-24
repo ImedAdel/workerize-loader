@@ -111,6 +111,10 @@ loader.pitch = function(request) {
 						exports[decl.declarations[i].id.name] = true;
 					}
 				}
+				// by QingWei-Li
+				else if (options.publicPath) {
+					worker.url = `${JSON.stringify(options.publicPath + worker.file)}`;
+				}
 				else {
 					console.warn('[workerize] unknown export declaration: ', expr);
 				}
